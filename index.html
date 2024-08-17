@@ -3,67 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Fitness Website</title>
+    <title>My Fitness Journey</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav id="menu-bar">
+    <div class="container">
+        <nav>
             <ul>
-                <!-- Personal Info Menu -->
-                <li class="menu-item" id="personal-info-menu">
-                    <a href="#">My Story</a>
-                    <ul class="submenu" id="personal-info-submenu">
-                        <li><button onclick="displayCertificate()">Certification</button></li>
-                        <li><button onclick="openYouTube('https://youtube.com/shorts/mP4P-2Tisa0')">Videos</button></li>
-                        <li><button onclick="displayPersonalSummary()">Personal Summary</button></li>
-                    </ul>
-                </li>
-                <!-- Offers Menu -->
-                <li class="menu-item" id="offers-menu">
-                    <a href="#">Current Offers!</a>
-                    <ul class="submenu" id="offers-submenu">
-                        <li><button onclick="displayLimitedTimeOffers()">Limited Time Offers</button></li>
-                        <li><button onclick="displayStandardOffers()">Standard Offers</button></li>
-                    </ul>
-                </li>
-                <!-- Exercise Library Menu -->
-                <li class="menu-item" id="exercise-library-menu">
-                    <a href="#">Exercise Library</a>
-                    <ul class="submenu" id="exercise-library-submenu">
-                        <li><button onclick="openYouTube('INSERT_YOUTUBE_LINK_FOR_BACK_EXERCISES')">Back exercises</button></li>
-                        <!-- Add other exercise types similarly -->
-                    </ul>
-                </li>
-                <!-- Calorie Calculator Menu -->
-                <li class="menu-item" id="cc-menu">
-                    <a href="#">Calorie Calculator!</a>
-                    <ul class="submenu" id="cc-submenu">
-                        <!-- Calorie Calculator content is managed by JavaScript -->
-                    </ul>
-                </li>
-                <!-- Help Me, Help You Menu -->
-                <li class="menu-item" id="hmhu-menu">
-                    <a href="#">Help me, help you</a>
-                    <ul class="submenu" id="hmhu-submenu">
-                        <li><button onclick="openWebpage('https://www.instagram.com/yourprofile/')">Visit Instagram Profile</button></li>
-                        <li><button onclick="openWebpage('https://www.linkedin.com/in/yourprofile/')">Visit LinkedIn Profile</button></li>
-                    </ul>
-                </li>
-                <!-- For Professional Athletes Menu -->
-                <li class="menu-item" id="athlete-menu">
-                    <a href="#">For Professional Athletes</a>
-                    <ul class="submenu" id="athlete-submenu">
-                        <li><button onclick="displayGoPro()">Go Pro!</button></li>
-                        <li><button onclick="displayAlreadyPro()">Already a Pro</button></li>
-                    </ul>
-                </li>
+                <li><a href="#personal-info">My Story</a></li>
+                <li><a href="#offers">Current Offers</a></li>
+                <li><a href="#exercise-library">Exercise Library</a></li>
+                <li><a href="calorie-calculator.html">Calorie Calculator</a></li>
+                <li><a href="#help-me-help-you">Help Me, Help You</a></li>
+                <li><a href="#pro-athlete">For Professional Athletes</a></li>
             </ul>
         </nav>
-    </header>
-    <main id="content">
-        <!-- Dynamic content will be loaded here -->
-    </main>
+
+        <div id="content">
+            <section id="personal-info">
+                <h2>My Story</h2>
+                <p>Personal summary and fitness journey.</p>
+            </section>
+
+            <section id="offers">
+                <h2>Current Offers</h2>
+                <p>Details about limited-time and standard offers.</p>
+            </section>
+
+            <section id="exercise-library">
+                <h2>Exercise Library</h2>
+                <ul>
+                    <li><a href="#">Back exercises</a></li>
+                    <li><a href="#">Chest exercises</a></li>
+                    <!-- Add more exercises similarly -->
+                </ul>
+            </section>
+
+            <section id="help-me-help-you">
+                <h2>Help Me, Help You</h2>
+                <ul>
+                    <li><a href="#">Visit Instagram Profile</a></li>
+                    <li><a href="#">Visit LinkedIn Profile</a></li>
+                </ul>
+            </section>
+
+            <section id="pro-athlete">
+                <h2>For Professional Athletes</h2>
+                <button onclick="goPro()">Go Pro!</button>
+                <button onclick="alreadyPro()">Already a Pro</button>
+            </section>
+        </div>
+    </div>
+
     <script src="scripts.js"></script>
 </body>
 </html>
