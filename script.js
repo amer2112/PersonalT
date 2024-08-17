@@ -1,5 +1,20 @@
 // scripts.js
 document.addEventListener('DOMContentLoaded', function() {
+    // Add event listeners for menu items
+    document.querySelectorAll('#menu-bar > ul > li > a').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const submenu = this.nextElementSibling;
+            if (submenu && submenu.classList.contains('submenu')) {
+                document.querySelectorAll('.submenu').forEach(sub => {
+                    if (sub !== submenu) sub.style.display = 'none';
+                });
+                submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+            }
+        });
+    });
+
+    // Add click event for each submenu item to load content into main
     document.getElementById('personal-info').addEventListener('click', function() {
         document.getElementById('content').innerHTML = `
             <h2>My Story</h2>
@@ -80,63 +95,36 @@ function displayCertificate() {
 function displayPersonalSummary() {
     document.getElementById('content').innerHTML = `
         <h2>Personal Summary</h2>
-        <p>I’m a very self-disciplined and goal-oriented person...</p>
+        <p>Write your personal summary here.</p>
     `;
 }
 
 function displayLimitedTimeOffers() {
     document.getElementById('content').innerHTML = `
         <h2>Limited Time Offers</h2>
-        <p>- 50% off on all training plans!...</p>
+        <p>Details about limited time offers.</p>
     `;
 }
 
 function displayStandardOffers() {
     document.getElementById('content').innerHTML = `
         <h2>Standard Offers</h2>
-        <p>- 10% off on all training plans...</p>
+        <p>Details about standard offers.</p>
     `;
 }
 
-function calculateCalories() {
-    const weight = parseFloat(document.getElementById('weight').value);
-    const height = parseFloat(document.getElementById('height').value);
-    const age = parseInt(document.getElementById('age').value);
-    const gender = document.getElementById('gender').value;
-    const activityLevel = document.getElementById('activity').value;
-
-    let calories;
-    if (gender === 'Male') {
-        calories = calculateCaloriesForMale(weight, height, age, activityLevel);
-    } else {
-        calories = calculateCaloriesForFemale(weight, height, age, activityLevel);
-    }
-
-    alert('Calories: ' + calories);
+function displayGoPro() {
+    document.getElementById('content').innerHTML = `
+        <h2>Go Pro!</h2>
+        <p>Information about going pro.</p>
+    `;
 }
 
-function calculateCaloriesForMale(weight, height, age, activityLevel) {
-    let bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-    switch (activityLevel) {
-        case 'Sedentary': return bmr * 1.2;
-        case 'Lightly active': return bmr * 1.375;
-        case 'Moderately active': return bmr * 1.55;
-        case 'Very active': return bmr * 1.725;
-        case 'Extra active': return bmr * 1.9;
-        default: return 0;
-    }
-}
-
-function calculateCaloriesForFemale(weight, height, age, activityLevel) {
-    let bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-    switch (activityLevel) {
-        case 'Sedentary': return bmr * 1.2;
-        case 'Lightly active': return bmr * 1.375;
-        case 'Moderately active': return bmr * 1.55;
-        case 'Very active': return bmr * 1.725;
-        case 'Extra active': return bmr * 1.9;
-        default: return 0;
-    }
+function displayAlreadyPro() {
+    document.getElementById('content').innerHTML = `
+        <h2>Already a Pro</h2>
+        <p>Information for those already a pro.</p>
+    `;
 }
 
 function openYouTube(url) {
@@ -147,17 +135,45 @@ function openWebpage(url) {
     window.open(url, '_blank');
 }
 
-function displayGoPro() {
-    document.getElementById('content').innerHTML = `
-        <h2>Go Pro!</h2>
-        <p>Please contact this email: <a href="mailto:abdallah.amer2112@gmail.com">abdallah.amer2112@gmail.com</a></p>
-    `;
-}
+function calculateCalories() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const age = parseFloat(document.getElementById('age').value);
+    const gender = document.getElementById('gender').value;
+    const activity = document.getElementById('activity').value;
 
-function displayAlreadyPro() {
-    const email = prompt('Please enter your email address:');
+    let bmr;
+
+    if (gender === 'Male') {
+        bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+    } else {
+        bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+    }
+
+    let activityFactor;
+    switch (activity) {
+        case 'Sedentary':
+            activityFactor = 1.2;
+            break;
+        case 'Lightly active':
+            activityFactor = 1.375;
+            break;
+        case 'Moderately active':
+            activityFactor = 1.55;
+            break;
+        case 'Very active':
+            activityFactor = 1.725;
+            break;
+        case 'Extra active':
+            activityFactor = 1.9;
+            break;
+        default:
+            activityFactor = 1.2;
+    }
+
+    const totalCalories = bmr * activityFactor;
     document.getElementById('content').innerHTML = `
-        <h2>Already a Pro</h2>
-        <p>An email has been sent to: ${email}</p>
+        <h2>Calculated Calories</h2>
+        <p>Your daily calorie requirement is: ${Math.round(totalCalories)} calories.</p>
     `;
 }
