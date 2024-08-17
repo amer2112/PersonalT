@@ -3,9 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('content').innerHTML = `
             <h2>My Story</h2>
             <p>Details about my story...</p>
-            <img src="Cert.jpg" alt="Certificate" id="certificateImage" style="display: none;">
+            <img src="Cert.jpg" alt="Certificate" id="certificateImage" style="display: block;">
         `;
-        document.getElementById('certificateImage').style.display = 'block'; // Show certificate image
     });
 
     document.getElementById('currentOffers').addEventListener('click', function() {
