@@ -24,6 +24,7 @@ header {
 }
 
 #menu-bar li {
+    position: relative;
     margin: 0 10px;
 }
 
@@ -36,6 +37,35 @@ header {
 
 #menu-bar a:hover {
     color: #007bff;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 10px;
+    list-style: none;
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu li button {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px 0;
+    text-align: left;
+}
+
+.submenu li button:hover {
+    text-decoration: underline;
 }
 
 #content {
