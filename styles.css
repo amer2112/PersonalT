@@ -1,113 +1,42 @@
-/* Basic Reset */
-body, h1, h2, h3, p, ul, li, button {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* General Body Styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-}
-
-/* Header and Menu Bar Styles */
-header {
-    background-color: #333;
-    color: #fff;
-}
-
-#menu-bar {
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-    padding: 10px 0;
-}
-
-#menu-bar ul {
-    list-style: none;
-    display: flex;
+    background-image: url('background.jpg');
+    background-size: cover;
     margin: 0;
     padding: 0;
 }
 
-#menu-bar li {
-    position: relative;
-}
-
-#menu-bar a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-#menu-bar a:hover {
-    background-color: #575757;
-}
-
-/* Submenu Styles */
-.submenu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #444;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.submenu li {
-    margin: 5px 0;
-}
-
-.submenu button {
-    background: none;
-    border: none;
-    color: #fff;
-    text-align: left;
-    padding: 10px;
-    width: 100%;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.submenu button:hover {
-    background-color: #666;
-}
-
-/* Show submenu on hover */
-.menu-item:hover .submenu {
-    display: block;
-}
-
-/* Main Content Styles */
-#content {
+.container {
+    width: 1000px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    margin: 20px auto;
-    max-width: 1200px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    #menu-bar ul {
-        flex-direction: column;
-        align-items: center;
-    }
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+}
 
-    #menu-bar a {
-        padding: 15px;
-    }
+nav ul li {
+    margin: 0 10px;
+}
 
-    .submenu {
-        position: static;
-        width: 100%;
-    }
+nav ul li a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+section {
+    margin: 20px 0;
+}
+
+#calorieResult {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
 }
