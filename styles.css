@@ -66,3 +66,15 @@ body {
 .menu-bar li:hover .submenu {
     display: block;
 }
+
+#calorieResult {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Ensure images fit well within containers */
+img {
+    max-width: 100%;
+    height: auto;
+}
