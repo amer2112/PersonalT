@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     function showWhyAllThis() {
-        alert('Why not? \nWhen I first started my fitness journey, I was lost... like really lost. \nI would've given up anything to have someone help me or guide me while I was just starting out. \nI was lucky enough to have had the chance to have a personal trainer who really knows what he's doing \nand has my best interest in mind, while also helping me make huge gains. \nBut after 4 years of training, I've realized that not everyone is as lucky, so I set out \nto create a website that could ...
+        alert('Why not? \\nWhen I first started my fitness journey, I was lost... like really lost. \\nI would\'ve given up anything to have someone help me or guide me while I was just starting out. \\nI was lucky enough to have had the chance to have a personal trainer who really knows what he\'s doing \\nand has my best interest in mind, while also helping me make huge gains. \\nBut after 4 years of training, I\'ve realized that not everyone is as lucky, so I set out \\nto create a website that could ...
     }
 
     // Personal Summary
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     function showPersonalSummary() {
-        alert('My Personal Summary:\nI’m a very self-disciplined and goal-oriented person. For the past four years, I've put my time and energy into fitness.\nI’ve learned so much along the way and I’m ready to help others achieve their goals.\nFitness is my passion and helping others reach their full potential is my goal.');
+        alert('My Personal Summary:\\nI’m a very self-disciplined and goal-oriented person. For the past four years, I\'ve put my time and energy into fitness.\\nI’ve learned so much along the way and I’m ready to help others achieve their goals.\\nFitness is my passion and helping others reach their full potential is my goal.');
     }
 
     // Limited Time Offers
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 
     function showLimitedTimeOffers() {
-        alert('Limited Time Offers:\n- 50% off on all training plans!\n- Free nutrition guide with any training plan purchase.\n- Refer a friend and get 1 month of training for free.');
+        alert('Limited Time Offers:\\n- 50% off on all training plans!\\n- Free nutrition guide with any training plan purchase.\\n- Refer a friend and get 1 month of training for free.');
     }
 
     // Standard Offers with Currency Selection
@@ -58,9 +58,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const currency = prompt('Choose your currency: EGP or USD');
         if (currency && (currency.toUpperCase() === 'EGP' || currency.toUpperCase() === 'USD')) {
             if (currency.toUpperCase() === 'EGP') {
-                alert('Standard Offers in EGP:\n- 10% off on all training plans.\n- Buy 2 months of training, get the 3rd month free.\n- Free consultation with every new signup.');
+                alert('Standard Offers in EGP:\\n- 10% off on all training plans.\\n- Buy 2 months of training, get the 3rd month free.\\n- Free consultation with every new signup.');
             } else {
-                alert('Standard Offers in USD:\n- 10% off on all training plans.\n- Buy 2 months of training, get the 3rd month free.\n- Free consultation with every new signup.');
+                alert('Standard Offers in USD:\\n- 10% off on all training plans.\\n- Buy 2 months of training, get the 3rd month free.\\n- Free consultation with every new signup.');
             }
         } else {
             alert('Please enter a valid currency (EGP or USD)');
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function saveEmail(email) {
-        const blob = new Blob([email + '\n'], { type: 'text/plain;charset=utf-8' });
+        const blob = new Blob([email + '\\n'], { type: 'text/plain;charset=utf-8' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
         link.download = 'user_emails.txt';
