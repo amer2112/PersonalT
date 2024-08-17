@@ -1,57 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const contentPane = document.getElementById('contentPane');
-    const overlay = document.getElementById('overlay');
-    const overlayContent = document.createElement('div');
-    overlayContent.className = 'text';
-
-    function showOverlay(content, imageUrl = null) {
-        overlay.style.display = 'flex';
-        overlayContent.innerHTML = content;
-        if (imageUrl) {
-            overlayContent.innerHTML = `<img src="${imageUrl}" alt="Content Image" />`;
-        }
-        overlay.appendChild(overlayContent);
-    }
-
-    function hideOverlay() {
-        overlay.style.display = 'none';
-        overlayContent.innerHTML = '';
-        overlay.innerHTML = '';
-    }
-
-    document.getElementById('myStory').addEventListener('click', () => {
-        showOverlay(
-            "My Personal Summary: I’m a very self-disciplined and goal-oriented person. For the past four years, I've put my time and energy into fitness. I’ve learned so much along the way and I’m ready to help others achieve their goals. Fitness is my passion and helping others reach their full potential is my goal. I offer personalized training plans, nutrition advice, and ongoing support to ensure you achieve your goals."
-        );
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('myStory').addEventListener('click', function() {
+        document.getElementById('content').innerHTML = `
+            <h2>My Story</h2>
+            <p>Details about my story...</p>
+            <img src="Cert.jpg" alt="Certificate" id="certificateImage" style="display: none;">
+        `;
+        document.getElementById('certificateImage').style.display = 'block'; // Show certificate image
     });
 
-    document.getElementById('currentOffers').addEventListener('click', () => {
-        showOverlay(
-            "Limited Time Offers:<br>- 50% off on all training plans!<br>- Free nutrition guide with any training plan purchase.<br>- Refer a friend and get 1 month of training for free.<br><br>Standard Offers:<br>- 10% off on all training plans.<br>- Buy 2 months of training, get the 3rd month free.<br>- Free consultation with every new signup."
-        );
+    document.getElementById('currentOffers').addEventListener('click', function() {
+        document.getElementById('content').innerHTML = `
+            <h2>Current Offers</h2>
+            <p>Details about current offers...</p>
+        `;
     });
 
-    document.getElementById('exerciseLibrary').addEventListener('click', () => {
-        showOverlay(
-            "Select an exercise type to view related videos."
-        );
+    document.getElementById('exerciseLibrary').addEventListener('click', function() {
+        document.getElementById('content').innerHTML = `
+            <h2>Exercise Library</h2>
+            <ul>
+                <li><a href="#" data-link="https://youtube.com/shorts/mP4P-2Tisa0">Back Exercises</a></li>
+                <!-- Add other exercise links here -->
+            </ul>
+        `;
+        document.querySelectorAll('#content a[data-link]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open(this.getAttribute('data-link'), '_blank');
+            });
+        });
     });
 
-    document.getElementById('calorieCalculator').addEventListener('click', () => {
-        showOverlay(null, 'cc.JPG');
+    document.getElementById('calorieCalculator').addEventListener('click', function() {
+        window.open('calorie_calculator.html', '_self'); // Load calorie calculator page
     });
 
-    document.getElementById('helpMeHelpYou').addEventListener('click', () => {
-        showOverlay(
-            "Visit my profiles:<br><a href='https://www.instagram.com/yourprofile/' target='_blank'>Instagram</a><br><a href='https://www.linkedin.com/in/yourprofile/' target='_blank'>LinkedIn</a>"
-        );
+    document.getElementById('helpMe').addEventListener('click', function() {
+        document.getElementById('content').innerHTML = `
+            <h2>Help Me, Help You</h2>
+            <ul>
+                <li><a href="https://www.instagram.com/yourprofile/" target="_blank">Visit Instagram Profile</a></li>
+                <li><a href="https://www.linkedin.com/in/yourprofile/" target="_blank">Visit LinkedIn Profile</a></li>
+            </ul>
+        `;
     });
 
-    document.getElementById('athlete').addEventListener('click', () => {
-        showOverlay(
-            "Go Pro!<br>Already a Pro"
-        );
+    document.getElementById('athlete').addEventListener('click', function() {
+        document.getElementById('content').innerHTML = `
+            <h2>For Professional Athletes</h2>
+            <p><a href="pro_options.html">Go Pro!</a></p>
+            <p><a href="pro_options.html">Already a Pro</a></p>
+        `;
     });
-
-    overlay.addEventListener('click', hideOverlay);
 });
