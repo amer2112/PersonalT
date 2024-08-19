@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="menu-bar">
+            <ul>
+                <li class="menu-item">My Story
+                    <ul class="dropdown">
+                        <li onclick="loadContent('certification')">Certification</li>
+                        <li onclick="loadContent('videos')">Videos</li>
+                        <li onclick="loadContent('why-all-this')">Why All This?</li>
+                        <li onclick="loadContent('personal-summary')">Personal Summary</li>
+                    </ul>
+                </li>
+                <li class="menu-item">Current Offers
+                    <ul class="dropdown">
+                        <li onclick="selectCurrency('limited')">Limited Time Offers</li>
+                        <li onclick="selectCurrency('standard')">Standard Offers</li>
+                    </ul>
+                </li>
+                <li class="menu-item">Exercise Library
+                    <ul class="dropdown">
+                        <li onclick="loadExerciseVideo('back-exercises')">Back Exercises</li>
+                        <li onclick="loadExerciseVideo('chest-exercises')">Chest Exercises</li>
+                        <li onclick="loadExerciseVideo('shoulder-exercises')">Shoulder Exercises</li>
+                        <li onclick="loadExerciseVideo('bicep-exercises')">Bicep Exercises</li>
+                        <li onclick="loadExerciseVideo('tricep-exercises')">Tricep Exercises</li>
+                        <li onclick="loadExerciseVideo('legs-exercises')">Legs Exercises</li>
+                        <li onclick="loadExerciseVideo('abs-exercises')">Abs Exercises</li>
+                        <li onclick="loadExerciseVideo('dynamic-stretching')">Dynamic Stretching</li>
+                        <li onclick="loadExerciseVideo('mobility-exercises')">Mobility Exercises</li>
+                        <li onclick="loadExerciseVideo('cardiovascular-exercises')">Cardiovascular Exercises</li>
+                    </ul>
+                </li>
+                <li class="menu-item" onclick="loadContent('calorie-calculator')">Calorie Calculator</li>
+                <li class="menu-item">Get Started Now!
+                    <ul class="dropdown">
+                        <li onclick="redirectTo('instagram')">Visit Instagram Profile</li>
+                        <li onclick="redirectTo('linkedin')">Visit LinkedIn Profile</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-area" id="content-area">
+            <!-- Default image -->
+            <img src="your-image-name.jpg" alt="Default Image" id="default-image">
+        </section>
+    </main>
+
+    <!-- Currency Selection Modal -->
+    <div id="currency-modal" class="modal">
+        <div class="modal-content">
+            <h2>Select Currency</h2>
+            <button onclick="loadOffers('USD')">USD</button>
+            <button onclick="loadOffers('EGP')">EGP</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
