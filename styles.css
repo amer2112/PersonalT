@@ -33,7 +33,8 @@ body {
     flex: 1; /* Allow items to grow/shrink evenly */
 }
 
-.menu-bar ul li:hover, .menu-bar ul li.active {
+.menu-bar ul li:hover,
+.menu-bar ul li.active {
     background-color: #444;
 }
 
@@ -56,6 +57,7 @@ body {
     padding: 15px; /* Increased padding for submenu items */
     text-align: left;
     color: white;
+    white-space: nowrap; /* Prevent text wrapping in dropdowns */
 }
 
 .menu-bar ul li ul.dropdown li:hover {
@@ -68,7 +70,8 @@ body {
     min-height: 600px; /* Adjust height to accommodate larger content */
 }
 
-.content-area img, .content-area video {
+.content-area img,
+.content-area video {
     max-width: 90%; /* Make images and videos larger */
     height: auto;
     margin: 0 auto;
@@ -125,7 +128,8 @@ body {
     margin-bottom: 5px;
 }
 
-.calculator-input input, .calculator-input select {
+.calculator-input input,
+.calculator-input select {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -156,7 +160,8 @@ body {
         padding: 10px 15px; /* Adjust padding for smaller screens */
     }
 
-    .content-area img, .content-area video {
+    .content-area img,
+    .content-area video {
         max-width: 100%; /* Use full width on smaller screens */
     }
 
@@ -168,13 +173,23 @@ body {
 @media (max-width: 480px) {
     .menu-bar {
         font-size: 20px; /* Further reduce font size for very small screens */
+        padding: 10px 0; /* Reduce padding */
     }
 
     .menu-bar ul {
         flex-direction: column; /* Stack menu items vertically on very small screens */
+        align-items: center; /* Center the menu items */
     }
 
     .menu-bar ul li {
-        padding: 10px; /* Further adjust padding */
+        padding: 10px 0; /* Further adjust padding */
+        width: 100%; /* Make menu items take full width */
+        text-align: center;
+    }
+
+    .menu-bar ul li ul.dropdown {
+        min-width: 100%; /* Make dropdown width match parent item */
+        position: relative; /* Position dropdown relative to parent */
+        top: 0; /* Align dropdown under parent */
     }
 }
