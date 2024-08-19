@@ -1,0 +1,135 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.menu-bar {
+    background-color: black;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.menu-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-bar ul li {
+    display: inline-block;
+    position: relative;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-bar ul li:hover {
+    background-color: #444;
+}
+
+.menu-bar ul li ul.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+}
+
+.menu-bar ul li:hover ul.dropdown {
+    display: block;
+}
+
+.menu-bar ul li ul.dropdown li {
+    display: block;
+    padding: 10px;
+    text-align: left;
+}
+
+.menu-bar ul li ul.dropdown li:hover {
+    background-color: #555;
+}
+
+.content-area {
+    padding: 20px;
+    text-align: center;
+}
+
+.content-area img, .content-area video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.content-area p {
+    white-space: pre-wrap;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin: 0 0 20px 0;
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Calorie Calculator Styles */
+.calculator-input {
+    margin: 10px 0;
+}
+
+.calculator-input label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.calculator-input input, .calculator-input select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+#calculate-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#calculate-button:hover {
+    background-color: #333;
+}
