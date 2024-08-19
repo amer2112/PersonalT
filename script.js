@@ -54,6 +54,33 @@ function loadContent(contentType) {
             <button id="calculate-button" onclick="calculateCalories()">Calculate</button>
             <p id="calorie-result"></p>
         `;
+    } else if (contentType === 'my-story') {
+        contentArea.innerHTML = `
+            <ul>
+                <li onclick="loadContent('certification')">Certification</li>
+                <li onclick="loadContent('videos')">Videos</li>
+                <li onclick="loadContent('why-all-this')">Why All This?</li>
+            </ul>`;
+    } else if (contentType === 'current-offers') {
+        contentArea.innerHTML = `
+            <ul>
+                <li onclick="selectCurrency('limited')">Limited Time Offers</li>
+                <li onclick="selectCurrency('standard')">Standard Offers</li>
+            </ul>`;
+    } else if (contentType === 'exercise-library') {
+        contentArea.innerHTML = `
+            <ul>
+                <li onclick="loadExerciseVideo('back-exercises')">Back Exercises</li>
+                <li onclick="loadExerciseVideo('chest-exercises')">Chest Exercises</li>
+                <li onclick="loadExerciseVideo('shoulder-exercises')">Shoulder Exercises</li>
+                <li onclick="loadExerciseVideo('bicep-exercises')">Bicep Exercises</li>
+                <li onclick="loadExerciseVideo('tricep-exercises')">Tricep Exercises</li>
+                <li onclick="loadExerciseVideo('legs-exercises')">Legs Exercises</li>
+                <li onclick="loadExerciseVideo('abs-exercises')">Abs Exercises</li>
+                <li onclick="loadExerciseVideo('dynamic-stretching')">Dynamic Stretching</li>
+                <li onclick="loadExerciseVideo('mobility-exercises')">Mobility Exercises</li>
+                <li onclick="loadExerciseVideo('cardiovascular-exercises')">Cardiovascular Exercises</li>
+            </ul>`;
     }
 }
 
@@ -96,7 +123,6 @@ function loadOffers(currency) {
                            '- Full package (training and meal plan) 1 month: 1200 EGP\n' +
                            '- Full package 3 months: 3300 EGP';
         } else if (currency === 'USD') {
-            // Insert the offers for USD here
             offerContent = `Standard Offers (${currency}):\n` +
                            '- Meal plan 1 month: 20$\n' +
                            '- Meal plan 3 months: 50$\n\n' +
@@ -155,26 +181,3 @@ function redirectTo(platform) {
         window.location.href = 'https://www.linkedin.com/in/yourprofile/';
     }
 }
-
-// New Part: Allow dropdowns to be accessed by both hovering and clicking
-document.addEventListener('DOMContentLoaded', function() {
-    const menuItems = document.querySelectorAll('.menu-bar ul li');
-
-    menuItems.forEach(item => {
-        item.addEventListener('click', function(event) {
-            // Prevent click from closing the dropdown immediately
-            event.stopPropagation();
-
-            // Hide dropdowns for other menu items
-            menuItems.forEach(i => i !== this && i.classList.remove('show-dropdown'));
-
-            // Toggle dropdown on click for the current item
-            this.classList.toggle('show-dropdown');
-        });
-    });
-
-    // Close dropdowns if clicking outside of menu
-    document.addEventListener('click', function() {
-        menuItems.forEach(item => item.classList.remove('show-dropdown'));
-    });
-});
