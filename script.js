@@ -21,7 +21,7 @@ function loadContent(contentType) {
             'on their fitness journey. This website will help you reach your goals faster and more effectively \n' +
             'than you ever thought possible, with the right mindset and dedication';
     } else if (contentType === 'calorie-calculator') {
-        contentArea.innerHTML = `
+        contentArea.innerHTML = 
             <div class="calculator-input">
                 <label for="weight">Weight (kg):</label>
                 <input type="number" id="weight" placeholder="Enter your weight in kg">
@@ -53,7 +53,7 @@ function loadContent(contentType) {
             </div>
             <button id="calculate-button" onclick="calculateCalories()">Calculate</button>
             <p id="calorie-result"></p>
-        `;
+        ;
     }
 }
 
@@ -109,7 +109,7 @@ function calculateCalories() {
             break;
     }
 
-    document.getElementById('calorie-result').innerText = `Your daily calorie needs are approximately ${Math.round(calorieNeeds)} calories.`;
+    document.getElementById('calorie-result').innerText = Your daily calorie needs are approximately ${Math.round(calorieNeeds)} calories.;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -155,17 +155,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const contentArea = document.getElementById('content-area');
         contentArea.innerHTML = '';
         if (selectedOfferType === 'standard') {
-            contentArea.innerHTML = `
+            contentArea.innerHTML = 
                 <p>10% off on all training plans.</p>
                 <p>Buy 2 months of training, get the 3rd month free.</p>
                 <p>Free consultation with every new signup.</p>
-            `;
+            ;
         } else if (selectedOfferType === 'limited') {
-            contentArea.innerHTML = `
+            contentArea.innerHTML = 
                 <p>50% off on all training plans!</p>
                 <p>Free nutrition guide with any training plan purchase.</p>
                 <p>Refer a friend and get 1 month of training for free.</p>
-            `;
+            ;
         }
     }
-});
+});/* General Styling */
