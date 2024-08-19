@@ -155,3 +155,26 @@ function redirectTo(platform) {
         window.location.href = 'https://www.linkedin.com/in/yourprofile/';
     }
 }
+
+// New Part: Allow dropdowns to be accessed by both hovering and clicking
+document.addEventListener('DOMContentLoaded', function() {
+    const menuItems = document.querySelectorAll('.menu-bar ul li');
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            // Prevent click from closing the dropdown immediately
+            event.stopPropagation();
+
+            // Hide dropdowns for other menu items
+            menuItems.forEach(i => i !== this && i.classList.remove('show-dropdown'));
+
+            // Toggle dropdown on click for the current item
+            this.classList.toggle('show-dropdown');
+        });
+    });
+
+    // Close dropdowns if clicking outside of menu
+    document.addEventListener('click', function() {
+        menuItems.forEach(item => item.classList.remove('show-dropdown'));
+    });
+});
