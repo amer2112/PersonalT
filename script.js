@@ -6,9 +6,9 @@ function loadContent(contentType) {
     contentArea.innerHTML = '';
 
     if (contentType === 'certification') {
-        contentArea.innerHTML = '<img src="your-certification-image-name.jpg" alt="Certification Image">';
+        contentArea.innerHTML = '<img src="B-Lizenz.png" alt="Certification Image">';
     } else if (contentType === 'videos') {
-        contentArea.innerHTML = '<video controls><source src="your-video-name.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+        contentArea.innerHTML = '<video controls><source src="https://youtube.com/shorts/mP4P-2Tisa0?si=e5j-K81qMV43sguy" type="video/mp4">Your browser does not support the video tag.</video>';
     } else if (contentType === 'why-all-this') {
         contentArea.innerHTML = 
             'Why not?\n' +
@@ -87,10 +87,24 @@ function loadOffers(currency) {
                        '- Free nutrition guide with any training plan purchase.\n' +
                        '- Refer a friend and get 1 month of training for free.';
     } else if (selectedOfferType === 'standard') {
-        offerContent = `Standard Offers (${currency}):\n` +
-                       '- 10% off on all training plans.\n' +
-                       '- Buy 2 months of training, get the 3rd month free.\n' +
-                       '- Free consultation with every new signup.';
+        if (currency === 'EGP') {
+            offerContent = `Standard Offers (${currency}):\n` +
+                           '- Meal plan 1 month: 500 EGP\n' +
+                           '- Meal plan 3 months: 1200 EGP\n\n' +
+                           '- Training plan 1 month: 800 EGP\n' +
+                           '- Training plan 3 months: 2400 EGP\n\n' +
+                           '- Full package (training and meal plan) 1 month: 1200 EGP\n' +
+                           '- Full package 3 months: 3300 EGP';
+        } else if (currency === 'USD') {
+            // Insert the offers for USD here
+            offerContent = `Standard Offers (${currency}):\n` +
+                           '- Meal plan 1 month: 20$\n' +
+                           '- Meal plan 3 months: 50$\n\n' +
+                           '- Training plan 1 month: 40$\n' +
+                           '- Training plan 3 months: 100$\n\n' +
+                           '- Full package (training and meal plan) 1 month: 50$\n' +
+                           '- Full package 3 months: 130$';
+        }
     }
 
     contentArea.innerHTML = `<p>${offerContent}</p>`;
