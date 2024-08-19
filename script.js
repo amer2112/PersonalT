@@ -1,6 +1,23 @@
-let selectedOfferType = ''; // Variable to keep track of selected offer type
-let selectedCurrency = '';  // Variable to keep track of selected currency
+// Ensure that touching the menu items reveals the dropdown
+document.querySelectorAll('.menu-bar ul li').forEach(item => {
+    item.addEventListener('touchstart', function (e) {
+        if (!item.classList.contains('touch-open')) {
+            // Prevent default behavior (which might require a long press)
+            e.preventDefault();
+            // Close all other dropdowns
+            document.querySelectorAll('.menu-bar ul li').forEach(el => {
+                el.classList.remove('touch-open');
+            });
+            // Open the touched one
+            item.classList.add('touch-open');
+        } else {
+            // If it's already open, let the touch event proceed as usual
+            item.classList.remove('touch-open');
+        }
+    });
+});
 
+// Example functions to load content dynamically
 function loadContent(contentType) {
     const contentArea = document.getElementById('content-area');
     contentArea.innerHTML = '';
