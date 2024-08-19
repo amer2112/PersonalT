@@ -33,7 +33,7 @@ body {
     flex: 1;
 }
 
-.menu-bar ul li:hover, .menu-bar ul li:focus-within {
+.menu-bar ul li:hover, .menu-bar ul li:focus-within, .menu-bar ul li.touch-open {
     background-color: #444;
 }
 
@@ -49,7 +49,8 @@ body {
 }
 
 .menu-bar ul li:hover ul.dropdown,
-.menu-bar ul li:focus-within ul.dropdown {
+.menu-bar ul li:focus-within ul.dropdown,
+.menu-bar ul li.touch-open ul.dropdown {
     display: block;
 }
 
