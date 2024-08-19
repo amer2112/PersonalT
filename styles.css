@@ -6,12 +6,12 @@ body {
 
 .menu-bar {
     background-color: black;
-    padding: 25px 0; /* Increased padding for larger menu bar */
+    padding: 20px 0;
     display: flex;
-    justify-content: center;
-    font-size: 36px; /* Larger font size for menu */
-    overflow-x: auto; /* Allow horizontal scrolling if necessary */
-    white-space: nowrap; /* Prevent items from wrapping to the next line */
+    justify-content: space-around; /* Distribute menu items evenly */
+    font-size: 24px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent items from wrapping */
 }
 
 .menu-bar ul {
@@ -19,18 +19,16 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    width: 100%;
+    justify-content: flex-start;
 }
 
 .menu-bar ul li {
     position: relative;
-    padding: 15px 20px; /* Adjust padding for better spacing */
+    padding: 10px 15px; /* Adjust padding for better spacing */
     color: white;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
-    flex: none; /* Prevent items from shrinking or growing */
 }
 
 .menu-bar ul li:hover {
@@ -41,7 +39,7 @@ body {
     display: none;
     position: absolute;
     background-color: #333;
-    top: 100%; /* Position dropdown below the menu item */
+    top: 100%;
     left: 0;
     z-index: 1000;
     min-width: 250px;
@@ -53,7 +51,7 @@ body {
 }
 
 .menu-bar ul li ul.dropdown li {
-    padding: 15px; /* Increased padding for submenu items */
+    padding: 15px;
     text-align: left;
     color: white;
 }
@@ -148,30 +146,33 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .menu-bar {
-        font-size: 24px; /* Smaller font size for smaller screens */
-        padding: 15px 0;
+        font-size: 20px; /* Smaller font size for smaller screens */
+        padding: 10px 0;
+        overflow-x: auto; /* Ensure horizontal scrolling is available if needed */
+    }
+
+    .menu-bar ul {
+        flex-wrap: nowrap; /* Prevent wrapping */
     }
 
     .menu-bar ul li {
-        padding: 10px 15px; /* Adjust padding for smaller screens */
-    }
-
-    .content-area img, .content-area video {
-        max-width: 100%;
-    }
-
-    .content-area p {
-        font-size: 18px;
+        padding: 10px; /* Adjust padding for smaller screens */
+        flex: 1 0 auto; /* Keep items from shrinking */
     }
 }
 
 @media (max-width: 480px) {
     .menu-bar {
-        font-size: 20px;
-        padding: 15px 0;
+        font-size: 18px; /* Further reduce font size for very small screens */
+        padding: 10px 0;
+    }
+
+    .menu-bar ul {
+        flex-wrap: nowrap;
     }
 
     .menu-bar ul li {
         padding: 10px;
+        flex: 1 0 auto;
     }
 }
