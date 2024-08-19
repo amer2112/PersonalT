@@ -7,7 +7,6 @@ body {
 .menu-bar {
     background-color: black;
     padding: 10px 0;
-    text-align: center;
 }
 
 .menu-bar ul {
@@ -44,9 +43,9 @@ body {
 }
 
 .menu-bar ul li ul.dropdown li {
-    display: block;
     padding: 10px;
     text-align: left;
+    color: white;
 }
 
 .menu-bar ul li ul.dropdown li:hover {
