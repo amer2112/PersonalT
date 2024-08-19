@@ -96,9 +96,13 @@ function loadOffers(currency) {
                            '- Full package (training and meal plan) 1 month: 1200 EGP\n' +
                            '- Full package 3 months: 3300 EGP';
         } else if (currency === 'USD') {
-            // Insert the offers for USD here
             offerContent = `Standard Offers (${currency}):\n` +
-                           '/* Insert your USD offers here */';
+                           '- Meal plan 1 month: $20\n' +
+                           '- Meal plan 3 months: $50\n\n' +
+                           '- Training plan 1 month: $40\n' +
+                           '- Training plan 3 months: $100\n\n' +
+                           '- Full package (training and meal plan) 1 month: $50\n' +
+                           '- Full package 3 months: $130';
         }
     }
 
