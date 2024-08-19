@@ -6,9 +6,10 @@ body {
 
 .menu-bar {
     background-color: black;
-    padding: 10px 0;
+    padding: 25px 0; /* Increase the padding to make the menu bar larger */
     display: flex;
     justify-content: center;
+    font-size: 36px; /* Increase the font size for a larger menu */
 }
 
 .menu-bar ul {
@@ -22,10 +23,9 @@ body {
 
 .menu-bar ul li {
     position: relative;
-    padding: 10px 20px;
+    padding: 15px 40px; /* Increase padding for larger clickable areas */
     color: white;
     cursor: pointer;
-    font-size: 24px;
     font-weight: bold;
 }
 
@@ -37,10 +37,10 @@ body {
     display: none;
     position: absolute;
     background-color: #333;
-    top: 50px;
+    top: 100%; /* Adjusted to accommodate the increased menu bar size */
     left: 0;
     z-index: 1000;
-    min-width: 200px;
+    min-width: 250px; /* Increase dropdown width */
     border: 2px solid #000;
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 .menu-bar ul li ul.dropdown li {
-    padding: 10px;
+    padding: 15px; /* Increased padding for submenu items */
     text-align: left;
     color: white;
 }
@@ -61,12 +61,19 @@ body {
 .content-area {
     padding: 20px;
     text-align: center;
-    min-height: 500px; /* Adjust as needed */
+    min-height: 600px; /* Adjust height to accommodate larger content */
+}
+
+.content-area img, .content-area video {
+    max-width: 90%; /* Make images and videos larger */
+    height: auto;
+    margin: 0 auto;
+    display: block;
 }
 
 .content-area p {
     white-space: pre-wrap;
-    font-size: 18px;
+    font-size: 24px; /* Larger text size */
     line-height: 1.5;
 }
 
