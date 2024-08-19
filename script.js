@@ -1,23 +1,6 @@
-// Ensure that touching the menu items reveals the dropdown
-document.querySelectorAll('.menu-bar ul li').forEach(item => {
-    item.addEventListener('touchstart', function (e) {
-        if (!item.classList.contains('touch-open')) {
-            // Prevent default behavior (which might require a long press)
-            e.preventDefault();
-            // Close all other dropdowns
-            document.querySelectorAll('.menu-bar ul li').forEach(el => {
-                el.classList.remove('touch-open');
-            });
-            // Open the touched one
-            item.classList.add('touch-open');
-        } else {
-            // If it's already open, let the touch event proceed as usual
-            item.classList.remove('touch-open');
-        }
-    });
-});
+let selectedOfferType = ''; // Variable to keep track of selected offer type
+let selectedCurrency = '';  // Variable to keep track of selected currency
 
-// Example functions to load content dynamically
 function loadContent(contentType) {
     const contentArea = document.getElementById('content-area');
     contentArea.innerHTML = '';
@@ -82,92 +65,107 @@ function loadExerciseVideo(exerciseType) {
         contentArea.innerHTML = '<video controls><source src="back-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
     } else if (exerciseType === 'chest-exercises') {
         contentArea.innerHTML = '<video controls><source src="chest-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } 
-    // Add more exercise videos as needed
-}
-
-function selectCurrency(offerType) {
-    selectedOfferType = offerType;
-    document.getElementById('currency-modal').style.display = 'block';
-}
-
-function loadOffers(currency) {
-    selectedCurrency = currency;
-    const contentArea = document.getElementById('content-area');
-    document.getElementById('currency-modal').style.display = 'none';
-
-    let offerContent = '';
-
-    if (selectedOfferType === 'limited') {
-        offerContent = `Limited Time Offers (${currency}):\n` +
-                       '- 50% off on all training plans!\n' +
-                       '- Free nutrition guide with any training plan purchase.\n' +
-                       '- Refer a friend and get 1 month of training for free.';
-    } else if (selectedOfferType === 'standard') {
-        if (currency === 'EGP') {
-            offerContent = `Standard Offers (${currency}):\n` +
-                           '- Meal plan 1 month: 500 EGP\n' +
-                           '- Meal plan 3 months: 1200 EGP\n\n' +
-                           '- Training plan 1 month: 800 EGP\n' +
-                           '- Training plan 3 months: 2400 EGP\n\n' +
-                           '- Full package (training and meal plan) 1 month: 1200 EGP\n' +
-                           '- Full package 3 months: 3300 EGP';
-        } else if (currency === 'USD') {
-            offerContent = `Standard Offers (${currency}):\n` +
-                           '- Meal plan 1 month: $20\n' +
-                           '- Meal plan 3 months: $50\n\n' +
-                           '- Training plan 1 month: $40\n' +
-                           '- Training plan 3 months: $100\n\n' +
-                           '- Full package (training and meal plan) 1 month: $50\n' +
-                           '- Full package 3 months: $130';
-        }
     }
-
-    contentArea.innerHTML = `<p>${offerContent}</p>`;
+    // Add more exercises as needed
 }
 
 function calculateCalories() {
     const weight = parseFloat(document.getElementById('weight').value);
     const height = parseFloat(document.getElementById('height').value);
-    const age = parseInt(document.getElementById('age').value);
+    const age = parseFloat(document.getElementById('age').value);
     const gender = document.getElementById('gender').value;
-    const activityLevel = document.getElementById('activity').value;
+    const activity = document.getElementById('activity').value;
+
+    if (isNaN(weight) || isNaN(height) || isNaN(age)) {
+        alert('Please fill in all the fields.');
+        return;
+    }
 
     let bmr;
+
     if (gender === 'Male') {
         bmr = 10 * weight + 6.25 * height - 5 * age + 5;
     } else {
         bmr = 10 * weight + 6.25 * height - 5 * age - 161;
     }
 
-    let calories;
-    switch (activityLevel) {
+    let calorieNeeds;
+
+    switch (activity) {
         case 'Sedentary':
-            calories = bmr * 1.2;
+            calorieNeeds = bmr * 1.2;
             break;
         case 'Lightly active':
-            calories = bmr * 1.375;
+            calorieNeeds = bmr * 1.375;
             break;
         case 'Moderately active':
-            calories = bmr * 1.55;
+            calorieNeeds = bmr * 1.55;
             break;
         case 'Very active':
-            calories = bmr * 1.725;
+            calorieNeeds = bmr * 1.725;
             break;
         case 'Extra active':
-            calories = bmr * 1.9;
+            calorieNeeds = bmr * 1.9;
             break;
-        default:
-            calories = 0;
     }
 
-    document.getElementById('calorie-result').innerText = `Calories: ${calories.toFixed(2)}`;
+    document.getElementById('calorie-result').innerText = `Your daily calorie needs are approximately ${Math.round(calorieNeeds)} calories.`;
 }
 
-function redirectTo(platform) {
-    if (platform === 'instagram') {
-        window.location.href = 'https://www.instagram.com/yourprofile/';
-    } else if (platform === 'linkedin') {
-        window.location.href = 'https://www.linkedin.com/in/yourprofile/';
+document.addEventListener('DOMContentLoaded', () => {
+    const menuItems = document.querySelectorAll('.menu-bar ul li');
+    menuItems.forEach(menuItem => {
+        menuItem.addEventListener('click', function() {
+            // Close all dropdowns
+            menuItems.forEach(item => {
+                if (item !== this) {
+                    item.classList.remove('active');
+                }
+            });
+            // Toggle the current dropdown
+            this.classList.toggle('active');
+        });
+    });
+
+    const submenuItems = document.querySelectorAll('.menu-bar ul li ul.dropdown li');
+    submenuItems.forEach(submenuItem => {
+        submenuItem.addEventListener('click', function() {
+            // Hide all submenus
+            submenuItems.forEach(item => {
+                item.parentElement.style.display = 'none';
+            });
+            // Prevent hiding the parent menu
+            this.parentElement.style.display = 'none';
+            // Load content based on submenu clicked
+            const contentType = this.getAttribute('data-content');
+            loadContent(contentType);
+        });
+    });
+
+    const offersButtons = document.querySelectorAll('.offer-button');
+    offersButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            selectedCurrency = this.getAttribute('data-currency');
+            selectedOfferType = this.getAttribute('data-offer-type');
+            displayOffers();
+        });
+    });
+
+    function displayOffers() {
+        const contentArea = document.getElementById('content-area');
+        contentArea.innerHTML = '';
+        if (selectedOfferType === 'standard') {
+            contentArea.innerHTML = `
+                <p>10% off on all training plans.</p>
+                <p>Buy 2 months of training, get the 3rd month free.</p>
+                <p>Free consultation with every new signup.</p>
+            `;
+        } else if (selectedOfferType === 'limited') {
+            contentArea.innerHTML = `
+                <p>50% off on all training plans!</p>
+                <p>Free nutrition guide with any training plan purchase.</p>
+                <p>Refer a friend and get 1 month of training for free.</p>
+            `;
+        }
     }
-}
+});
