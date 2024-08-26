@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Special handling for the Calorie Calculator menu item
+    // Ensure the calorie calculator is accessible via a light tap
     const calorieCalculatorItem = document.querySelector('.menu-item[onclick*="loadContent(\'calorie-calculator\')"]');
     if (calorieCalculatorItem) {
         calorieCalculatorItem.addEventListener('touchstart', function (event) {
