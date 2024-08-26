@@ -7,20 +7,30 @@ document.addEventListener('DOMContentLoaded', function () {
     menuItems.forEach(item => {
         item.addEventListener('touchstart', function (event) {
             event.preventDefault(); // Prevents the default click behavior
-            const dropdown = this.querySelector('.dropdown');
-            if (dropdown) {
-                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-            }
+            toggleDropdown(item);
         });
 
         item.addEventListener('click', function () {
-            const dropdown = this.querySelector('.dropdown');
-            if (dropdown) {
-                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-            }
+            toggleDropdown(item);
         });
     });
 });
+
+function toggleDropdown(item) {
+    const dropdown = item.querySelector('.dropdown');
+    if (dropdown) {
+        const isVisible = dropdown.style.display === 'block';
+        closeAllDropdowns(); // Close other open dropdowns
+        dropdown.style.display = isVisible ? 'none' : 'block';
+    }
+}
+
+function closeAllDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        dropdown.style.display = 'none';
+    });
+}
 
 function loadContent(contentType) {
     const contentArea = document.getElementById('content-area');
