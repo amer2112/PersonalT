@@ -63,8 +63,28 @@ function loadExerciseVideo(exerciseType) {
 
     if (exerciseType === 'back-exercises') {
         contentArea.innerHTML = '<video controls><source src="back-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } 
-    // Add other exercise videos as needed
+    } else if (exerciseType === 'chest-exercises') {
+        contentArea.innerHTML = '<video controls><source src="chest-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'shoulder-exercises') {
+        contentArea.innerHTML = '<video controls><source src="shoulder-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'bicep-exercises') {
+        contentArea.innerHTML = '<video controls><source src="bicep-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'tricep-exercises') {
+        contentArea.innerHTML = '<video controls><source src="tricep-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'legs-exercises') {
+        contentArea.innerHTML = '<video controls><source src="legs-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'abs-exercises') {
+        contentArea.innerHTML = '<video controls><source src="abs-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'stretches') {
+        contentArea.innerHTML = '<video controls><source src="stretches-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'mobility-exercises') {
+        contentArea.innerHTML = '<video controls><source src="mobility-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    }
+        else if (exerciseType === 'warmup-exercises') {
+        contentArea.innerHTML = '<video controls><source src="warmup-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (exerciseType === 'cardiovascular-exercises') {
+        contentArea.innerHTML = '<video controls><source src="cardiovascular-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    }
 }
 
 function selectCurrency(offerType) {
