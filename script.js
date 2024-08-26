@@ -10,8 +10,20 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleDropdown(item);
         });
 
-        item.addEventListener('click', function () {
+        item.addEventListener('click', function (event) {
             toggleDropdown(item);
+        });
+    });
+
+    // Ensure dropdowns remain open when tapping on submenu items
+    const dropdownItems = document.querySelectorAll('.dropdown li');
+    dropdownItems.forEach(dropdownItem => {
+        dropdownItem.addEventListener('touchstart', function (event) {
+            event.stopPropagation(); // Prevents closing the dropdown when a submenu item is tapped
+        });
+
+        dropdownItem.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevents closing the dropdown when a submenu item is clicked
         });
     });
 });
