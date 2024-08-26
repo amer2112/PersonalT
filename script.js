@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Special handling for the Calorie Calculator menu item
-    const calorieCalculatorItem = document.querySelector('.menu-item[onclick*="calorie-calculator"]');
+    const calorieCalculatorItem = document.querySelector('.menu-item[onclick*="loadContent(\'calorie-calculator\')"]');
     if (calorieCalculatorItem) {
         calorieCalculatorItem.addEventListener('touchstart', function (event) {
             event.preventDefault(); // Prevents the default click behavior
