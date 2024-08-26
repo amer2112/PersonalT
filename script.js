@@ -1,6 +1,27 @@
 let selectedOfferType = '';
 let selectedCurrency = '';
 
+document.addEventListener('DOMContentLoaded', function () {
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    menuItems.forEach(item => {
+        item.addEventListener('touchstart', function (event) {
+            event.preventDefault(); // Prevents the default click behavior
+            const dropdown = this.querySelector('.dropdown');
+            if (dropdown) {
+                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            }
+        });
+
+        item.addEventListener('click', function () {
+            const dropdown = this.querySelector('.dropdown');
+            if (dropdown) {
+                dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+            }
+        });
+    });
+});
+
 function loadContent(contentType) {
     const contentArea = document.getElementById('content-area');
     contentArea.innerHTML = '';
