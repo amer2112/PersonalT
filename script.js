@@ -11,15 +11,15 @@ function loadContent(contentType) {
         contentArea.innerHTML = '<video controls><source src="https://youtube.com/shorts/mP4P-2Tisa0?si=e5j-K81qMV43sguy" type="video/mp4">Your browser does not support the video tag.</video>';
     } else if (contentType === 'why-all-this') {
         contentArea.innerHTML = 
-            'Why not?\n' +
-            'When I first started my fitness journey, I was lost... like really lost. \n' +
-            "I would've given up anything to have someone help me or guide me while I was just starting out. \n" +
-            "I was lucky enough to have had the chance to have a personal trainer who really knows what he's doing \n" +
-            "and has my best interest in mind, while also helping me make huge gains. \n" +
-            "But after 4 years of training, I've realized that not everyone is as lucky, so I set out \n" +
-            "to create a website that could help any beginner, intermediate, or even a professional \n" +
-            'on their fitness journey. This website will help you reach your goals faster and more effectively \n' +
-            'than you ever thought possible, with the right mindset and dedication';
+            `<p>Why not?<br>
+            When I first started my fitness journey, I was lost... like really lost.<br>
+            I would've given up anything to have someone help me or guide me while I was just starting out.<br>
+            I was lucky enough to have had the chance to have a personal trainer who really knows what he's doing<br>
+            and has my best interest in mind, while also helping me make huge gains.<br>
+            But after 4 years of training, I've realized that not everyone is as lucky, so I set out<br>
+            to create a website that could help any beginner, intermediate, or even a professional<br>
+            on their fitness journey. This website will help you reach your goals faster and more effectively<br>
+            than you ever thought possible, with the right mindset and dedication.</p>`;
     } else if (contentType === 'calorie-calculator') {
         contentArea.innerHTML = `
             <div class="calculator-input">
@@ -61,29 +61,24 @@ function loadExerciseVideo(exerciseType) {
     const contentArea = document.getElementById('content-area');
     contentArea.innerHTML = '';
 
-    if (exerciseType === 'back-exercises') {
-        contentArea.innerHTML = '<video controls><source src="back-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'chest-exercises') {
-        contentArea.innerHTML = '<video controls><source src="chest-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'shoulder-exercises') {
-        contentArea.innerHTML = '<video controls><source src="shoulder-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'bicep-exercises') {
-        contentArea.innerHTML = '<video controls><source src="bicep-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'tricep-exercises') {
-        contentArea.innerHTML = '<video controls><source src="tricep-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'legs-exercises') {
-        contentArea.innerHTML = '<video controls><source src="legs-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'abs-exercises') {
-        contentArea.innerHTML = '<video controls><source src="abs-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'stretches') {
-        contentArea.innerHTML = '<video controls><source src="stretches-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'mobility-exercises') {
-        contentArea.innerHTML = '<video controls><source src="mobility-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    }
-        else if (exerciseType === 'warmup-exercises') {
-        contentArea.innerHTML = '<video controls><source src="warmup-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
-    } else if (exerciseType === 'cardiovascular-exercises') {
-        contentArea.innerHTML = '<video controls><source src="cardiovascular-exercises-video.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    const videos = {
+        'back-exercises': 'back-exercises-video.mp4',
+        'chest-exercises': 'chest-exercises-video.mp4',
+        'shoulder-exercises': 'shoulder-exercises-video.mp4',
+        'bicep-exercises': 'bicep-exercises-video.mp4',
+        'tricep-exercises': 'tricep-exercises-video.mp4',
+        'legs-exercises': 'legs-exercises-video.mp4',
+        'abs-exercises': 'abs-exercises-video.mp4',
+        'stretches': 'stretches-video.mp4',
+        'mobility-exercises': 'mobility-exercises-video.mp4',
+        'warmup-exercises': 'warmup-exercises-video.mp4',
+        'cardiovascular-exercises': 'cardiovascular-exercises-video.mp4'
+    };
+
+    if (videos[exerciseType]) {
+        contentArea.innerHTML = `<video controls><source src="${videos[exerciseType]}" type="video/mp4">Your browser does not support the video tag.</video>`;
+    } else {
+        contentArea.innerHTML = `<p>Video not available.</p>`;
     }
 }
 
@@ -100,27 +95,27 @@ function loadOffers(currency) {
     let offerContent = '';
 
     if (selectedOfferType === 'limited') {
-        offerContent = `Limited Time Offers (${currency}):\n` +
-                       '- 50% off on all training plans!\n' +
-                       '- Free nutrition guide with any training plan purchase.\n' +
-                       '- Refer a friend and get 1 month of training for free.';
+        offerContent = `Limited Time Offers (${currency}):<br>
+                       - 50% off on all training plans!<br>
+                       - Free nutrition guide with any training plan purchase.<br>
+                       - Refer a friend and get 1 month of training for free.`;
     } else if (selectedOfferType === 'standard') {
         if (currency === 'EGP') {
-            offerContent = `Standard Offers (${currency}):\n` +
-                           '- Meal plan 1 month: 500 EGP\n' +
-                           '- Meal plan 3 months: 1200 EGP\n\n' +
-                           '- Training plan 1 month: 800 EGP\n' +
-                           '- Training plan 3 months: 2400 EGP\n\n' +
-                           '- Full package (training and meal plan) 1 month: 1200 EGP\n' +
-                           '- Full package 3 months: 3300 EGP';
+            offerContent = `Standard Offers (${currency}):<br>
+                           - Meal plan 1 month: 500 EGP<br>
+                           - Meal plan 3 months: 1200 EGP<br><br>
+                           - Training plan 1 month: 800 EGP<br>
+                           - Training plan 3 months: 2400 EGP<br><br>
+                           - Full package (training and meal plan) 1 month: 1200 EGP<br>
+                           - Full package 3 months: 3300 EGP`;
         } else if (currency === 'USD') {
-            offerContent = `Standard Offers (${currency}):\n` +
-                           '- Meal plan 1 month: $30\n' +
-                           '- Meal plan 3 months: $75\n\n' +
-                           '- Training plan 1 month: $50\n' +
-                           '- Training plan 3 months: $135\n\n' +
-                           '- Full package (training and meal plan) 1 month: $75\n' +
-                           '- Full package 3 months: $200';
+            offerContent = `Standard Offers (${currency}):<br>
+                           - Meal plan 1 month: $30<br>
+                           - Meal plan 3 months: $75<br><br>
+                           - Training plan 1 month: $50<br>
+                           - Training plan 3 months: $135<br><br>
+                           - Full package (training and meal plan) 1 month: $75<br>
+                           - Full package 3 months: $200`;
         }
     }
 
@@ -133,6 +128,11 @@ function calculateCalories() {
     const age = parseInt(document.getElementById('age').value);
     const gender = document.getElementById('gender').value;
     const activityLevel = document.getElementById('activity').value;
+
+    if (isNaN(weight) || isNaN(height) || isNaN(age) || weight <= 0 || height <= 0 || age <= 0) {
+        document.getElementById('calorie-result').innerText = "Please enter valid values.";
+        return;
+    }
 
     let bmr;
     if (gender === 'Male') {
@@ -166,9 +166,16 @@ function calculateCalories() {
 }
 
 function redirectTo(platform) {
+    let url = '';
     if (platform === 'instagram') {
-        window.location.href = 'https://www.instagram.com/yourprofile/';
+        url = 'https://www.instagram.com/yourprofile/';
     } else if (platform === 'linkedin') {
-        window.location.href = 'https://www.linkedin.com/in/yourprofile/';
+        url = 'https://www.linkedin.com/in/yourprofile/';
+    }
+
+    if (url) {
+        window.location.href = url;
+    } else {
+        console.error("Invalid platform specified for redirection.");
     }
 }
