@@ -4,13 +4,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Menu Bar Styling */
 .menu-bar {
     background-color: black;
-    padding: 25px 0; /* Increase the padding to make the menu bar larger */
+    padding: 25px 0;
     display: flex;
     justify-content: center;
-    font-size: 36px; /* Increase the font size for a larger menu */
-    position: relative; /* Ensure the menu-bar is positioned for dropdowns */
+    font-size: 36px;
 }
 
 .menu-bar ul {
@@ -20,20 +20,20 @@ body {
     display: flex;
     justify-content: center;
     width: 100%;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
 }
 
 .menu-bar ul li {
     position: relative;
-    padding: 15px 20px; /* Adjust padding for better spacing on smaller screens */
+    padding: 15px 20px;
     color: white;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
-    flex: 1; /* Allow items to grow/shrink evenly */
+    flex: 1;
 }
 
-.menu-bar ul li:hover, .menu-bar ul li.active {
+.menu-bar ul li:hover, .menu-bar ul li:focus-within, .menu-bar ul li.touch-open {
     background-color: #444;
 }
 
@@ -41,19 +41,21 @@ body {
     display: none;
     position: absolute;
     background-color: #333;
-    top: 100%; /* Adjusted to accommodate the increased menu bar size */
+    top: 100%;
     left: 0;
     z-index: 1000;
-    min-width: 250px; /* Increase dropdown width */
+    min-width: 250px;
     border: 2px solid #000;
 }
 
-.menu-bar ul li.active ul.dropdown {
+.menu-bar ul li:hover ul.dropdown,
+.menu-bar ul li:focus-within ul.dropdown,
+.menu-bar ul li.touch-open ul.dropdown {
     display: block;
 }
 
 .menu-bar ul li ul.dropdown li {
-    padding: 15px; /* Increased padding for submenu items */
+    padding: 15px;
     text-align: left;
     color: white;
 }
@@ -62,14 +64,15 @@ body {
     background-color: #555;
 }
 
+/* Content Area Styling */
 .content-area {
     padding: 20px;
     text-align: center;
-    min-height: 600px; /* Adjust height to accommodate larger content */
+    min-height: 600px;
 }
 
 .content-area img, .content-area video {
-    max-width: 90%; /* Make images and videos larger */
+    max-width: 90%;
     height: auto;
     margin: 0 auto;
     display: block;
@@ -77,29 +80,29 @@ body {
 
 .content-area p {
     white-space: pre-wrap;
-    font-size: 24px; /* Larger text size */
+    font-size: 24px;
     line-height: 1.5;
 }
 
 /* Modal Styles */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
     background-color: white;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
     text-align: center;
 }
 
@@ -148,33 +151,46 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     .menu-bar {
-        font-size: 24px; /* Smaller font size for smaller screens */
+        font-size: 24px;
         padding: 15px 0;
     }
 
     .menu-bar ul li {
-        padding: 10px 15px; /* Adjust padding for smaller screens */
+        padding: 10px 15px;
     }
 
     .content-area img, .content-area video {
-        max-width: 100%; /* Use full width on smaller screens */
+        max-width: 100%;
     }
 
     .content-area p {
-        font-size: 18px; /* Adjust text size for better readability on smaller screens */
+        font-size: 18px;
     }
 }
 
 @media (max-width: 480px) {
     .menu-bar {
-        font-size: 20px; /* Further reduce font size for very small screens */
+        font-size: 20px;
+        padding: 10px 0;
     }
 
     .menu-bar ul {
-        flex-direction: column; /* Stack menu items vertically on very small screens */
+        flex-direction: column;
     }
 
     .menu-bar ul li {
-        padding: 10px; /* Further adjust padding */
+        padding: 10px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .content-area p {
+        font-size: 16px;
+    }
+
+    #calculate-button {
+        width: 100%;
     }
 }
