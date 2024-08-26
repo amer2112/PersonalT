@@ -1,23 +1,6 @@
-// Ensure that touching the menu items reveals the dropdown
-document.querySelectorAll('.menu-bar ul li').forEach(item => {
-    item.addEventListener('touchstart', function (e) {
-        if (!item.classList.contains('touch-open')) {
-            // Prevent default behavior (which might require a long press)
-            e.preventDefault();
-            // Close all other dropdowns
-            document.querySelectorAll('.menu-bar ul li').forEach(el => {
-                el.classList.remove('touch-open');
-            });
-            // Open the touched one
-            item.classList.add('touch-open');
-        } else {
-            // If it's already open, let the touch event proceed as usual
-            item.classList.remove('touch-open');
-        }
-    });
-});
+let selectedOfferType = ''; // Variable to keep track of selected offer type
+let selectedCurrency = '';  // Variable to keep track of selected currency
 
-// Example functions to load content dynamically
 function loadContent(contentType) {
     const contentArea = document.getElementById('content-area');
     contentArea.innerHTML = '';
@@ -38,7 +21,7 @@ function loadContent(contentType) {
             'on their fitness journey. This website will help you reach your goals faster and more effectively \n' +
             'than you ever thought possible, with the right mindset and dedication';
     } else if (contentType === 'calorie-calculator') {
-        contentArea.innerHTML = 
+        contentArea.innerHTML = `
             <div class="calculator-input">
                 <label for="weight">Weight (kg):</label>
                 <input type="number" id="weight" placeholder="Enter your weight in kg">
@@ -70,7 +53,7 @@ function loadContent(contentType) {
             </div>
             <button id="calculate-button" onclick="calculateCalories()">Calculate</button>
             <p id="calorie-result"></p>
-        ;
+        `;
     }
 }
 
@@ -99,13 +82,13 @@ function loadOffers(currency) {
     let offerContent = '';
 
     if (selectedOfferType === 'limited') {
-        offerContent = Limited Time Offers (${currency}):\n +
+        offerContent = `Limited Time Offers (${currency}):\n` +
                        '- 50% off on all training plans!\n' +
                        '- Free nutrition guide with any training plan purchase.\n' +
                        '- Refer a friend and get 1 month of training for free.';
     } else if (selectedOfferType === 'standard') {
         if (currency === 'EGP') {
-            offerContent = Standard Offers (${currency}):\n +
+            offerContent = `Standard Offers (${currency}):\n` +
                            '- Meal plan 1 month: 500 EGP\n' +
                            '- Meal plan 3 months: 1200 EGP\n\n' +
                            '- Training plan 1 month: 800 EGP\n' +
@@ -113,17 +96,17 @@ function loadOffers(currency) {
                            '- Full package (training and meal plan) 1 month: 1200 EGP\n' +
                            '- Full package 3 months: 3300 EGP';
         } else if (currency === 'USD') {
-            offerContent = Standard Offers (${currency}):\n +
-                           '- Meal plan 1 month: $20\n' +
-                           '- Meal plan 3 months: $50\n\n' +
-                           '- Training plan 1 month: $40\n' +
-                           '- Training plan 3 months: $100\n\n' +
-                           '- Full package (training and meal plan) 1 month: $50\n' +
-                           '- Full package 3 months: $130';
+            offerContent = `Standard Offers (${currency}):\n` +
+                           '- Meal plan 1 month: $30\n' +
+                           '- Meal plan 3 months: $75\n\n' +
+                           '- Training plan 1 month: $50\n' +
+                           '- Training plan 3 months: $135\n\n' +
+                           '- Full package (training and meal plan) 1 month: $75\n' +
+                           '- Full package 3 months: $200';
         }
     }
 
-    contentArea.innerHTML = <p>${offerContent}</p>;
+    contentArea.innerHTML = `<p>${offerContent}</p>`;
 }
 
 function calculateCalories() {
@@ -161,7 +144,7 @@ function calculateCalories() {
             calories = 0;
     }
 
-    document.getElementById('calorie-result').innerText = Calories: ${calories.toFixed(2)};
+    document.getElementById('calorie-result').innerText = `Calories: ${calories.toFixed(2)}`;
 }
 
 function redirectTo(platform) {
