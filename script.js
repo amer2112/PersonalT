@@ -164,7 +164,7 @@ function loadOffers(currency) {
                            - Training plan 3 months: 2400 EGP<br><br>
                            - Full package (training and meal plan) 1 month: 1200 EGP<br>
                            - Full package 3 months: 3300 EGP<br>
-                           - *Note*: EGP offers only available for Egyptians/people living in Egypt ';
+                           - *Note*: EGP offers only available for Egyptians/people living in Egypt.`;
         } else if (currency === 'USD') {
             offerContent = `Standard Offers (${currency}):<br>
                            - Meal plan 1 month: $30<br>
