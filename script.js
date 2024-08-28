@@ -224,9 +224,9 @@ function calculateCalories() {
 function redirectTo(platform) {
     let url = '';
     if (platform === 'instagram') {
-        url = 'https://www.instagram.com/yourprofile/';
+        url = 'https://www.instagram.com/abdallahamer._/?igsh=MW5oOWxodGRsbHd4eg%3D%3D&utm_source=qr';
     } else if (platform === 'linkedin') {
-        url = 'https://www.linkedin.com/in/yourprofile/';
+        url = 'https://www.linkedin.com/feed/';
     }
 
     if (url) {
