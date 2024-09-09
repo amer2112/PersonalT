@@ -118,7 +118,7 @@ function loadExerciseVideo(exerciseType) {
     contentArea.innerHTML = '';
 
     const videos = {
-        'back-exercises': 'back-exercises-video.mp4',
+        'back-exercises': 'https://youtu.be/Jnfv5cjiJbI',
         'chest-exercises': 'chest-exercises-video.mp4',
         'shoulder-exercises': 'shoulder-exercises-video.mp4',
         'bicep-exercises': 'bicep-exercises-video.mp4',
