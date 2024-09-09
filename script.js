@@ -123,7 +123,7 @@ function loadExerciseVideo(exerciseType) {
         'chest-exercises': 'https://youtu.be/FYYKfRbwK0Q',
         'shoulder-exercises': 'https://youtu.be/s8HZEY-477c',
         'bicep-exercises': 'https://youtu.be/6xPK-ZwKOng',
-        'tricep-exercises': 'tricep-exercises-video.mp4',
+        'tricep-exercises': 'https://youtu.be/-qZrZekpXMI',
         'legs-exercises': 'https://youtu.be/KYvp97ODlX8',
         'abs-exercises': 'abs-exercises-video.mp4',
         'stretches': 'stretches-video.mp4',
