@@ -69,11 +69,12 @@ function loadContent(contentType) {
         contentArea.innerHTML = 
             `<p>Why not?<br>
             When I first started my fitness journey, I was lost... like really lost.<br>
-            I would've given up anything to have someone help me or guide me while I was just starting out.<br>
+            I would've given up anything to have someone help me while I was just starting out.<br>
             I was lucky enough to have had the chance to have a personal trainer who really knows what he's doing<br>
             and has my best interest in mind, while also helping me make huge gains.<br>
             But after 4 years of training, I've realized that not everyone is as lucky, so I set out<br>
-            to create a website that could help any beginner, intermediate, or even a professional<br>
+            to create a website to share everything that I have learned,<br>
+            so that I could help any beginner, intermediate, or even a professional<br>
             on their fitness journey. This website will help you reach your goals faster and more effectively<br>
             than you ever thought possible, with the right mindset and dedication.</p>`;
     } else if (contentType === 'calorie-calculator') {
@@ -121,7 +122,7 @@ function loadExerciseVideo(exerciseType) {
         'back-exercises': 'https://youtu.be/Jnfv5cjiJbI',
         'chest-exercises': 'https://youtu.be/FYYKfRbwK0Q',
         'shoulder-exercises': 'https://youtu.be/s8HZEY-477c',
-        'bicep-exercises': 'bicep-exercises-video.mp4',
+        'bicep-exercises': 'https://youtu.be/6xPK-ZwKOng',
         'tricep-exercises': 'tricep-exercises-video.mp4',
         'legs-exercises': 'https://youtu.be/KYvp97ODlX8',
         'abs-exercises': 'abs-exercises-video.mp4',
