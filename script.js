@@ -119,7 +119,7 @@ function loadExerciseVideo(exerciseType) {
 
     const videos = {
         'back-exercises': 'https://youtu.be/Jnfv5cjiJbI',
-        'chest-exercises': 'chest-exercises-video.mp4',
+        'chest-exercises': 'https://youtu.be/FYYKfRbwK0Q',
         'shoulder-exercises': 'shoulder-exercises-video.mp4',
         'bicep-exercises': 'bicep-exercises-video.mp4',
         'tricep-exercises': 'tricep-exercises-video.mp4',
