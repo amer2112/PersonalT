@@ -113,27 +113,6 @@ function loadContent(contentType) {
     }
 }
 
-function loadExerciseVideo(exerciseType) {
-    const videos = {
-        'back-exercises': 'https://youtu.be/Jnfv5cjiJbI',
-        'chest-exercises': 'https://youtu.be/FYYKfRbwK0Q',
-        'shoulder-exercises': 'https://youtu.be/s8HZEY-477c',
-        'bicep-exercises': 'https://youtu.be/6xPK-ZwKOng',
-        'tricep-exercises': 'https://youtu.be/-qZrZekpXMI',
-        'legs-exercises': 'https://youtu.be/KYvp97ODlX8',
-        'abs-exercises': 'https://youtu.be/abs-exercises-video.mp4',
-        'stretches': 'https://youtu.be/stretches-video.mp4',
-        'mobility-exercises': 'https://youtu.be/mobility-exercises-video.mp4',
-        'warmup-exercises': 'https://youtu.be/warmup-exercises-video.mp4',
-        'cardiovascular-exercises': 'https://youtu.be/cardiovascular-exercises-video.mp4'
-    };
-
-    if (videos[exerciseType]) {
-        window.location.href = videos[exerciseType]; // Redirects to YouTube video
-    } else {
-        alert("Video not available.");
-    }
-}
 
 function selectCurrency(offerType) {
     selectedOfferType = offerType;
