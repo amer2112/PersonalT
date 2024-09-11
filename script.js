@@ -219,6 +219,10 @@ function calculateCalories() {
     document.getElementById('calorie-result').innerText = `Calories: ${calories.toFixed(2)}`;
 }
 
+function loadExerciseVideo(url) {
+    window.location.href = url;
+}
+
 function redirectTo(platform) {
     let url = '';
     if (platform === 'instagram') {
