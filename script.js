@@ -218,11 +218,13 @@ function calculateCalories() {
 
     document.getElementById('calorie-result').innerText = `Calories: ${calories.toFixed(2)}`;
 }
-
+// Function to handle video redirection based on exercise type
 function loadExerciseVideo(url) {
+    // Redirects to the corresponding YouTube video URL
     window.location.href = url;
 }
 
+// Function to handle redirection to different profiles (Instagram or TikTok)
 function redirectTo(platform) {
     let url = '';
     if (platform === 'instagram') {
